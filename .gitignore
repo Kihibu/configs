@@ -1,0 +1,15 @@
+*/colors.yml
+.config/alacritty/colors.yml
+
+/* nvim related */
+.config/nvim/plugin
+/* autoload */
+session
+spell
+.netrwhist
+packer_compiled.lua
+private_vars.fish
+
+__pycache__/
+lastdir
+fish_variables
