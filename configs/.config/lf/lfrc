@@ -69,6 +69,7 @@ cmd trash %set -f; mv $fx ~/.trash
 # :MOVE to specific directory
 map gf :cd ~/.config
 map gd :cd ~/dev
+map gs :cd ~/src
 
 # define a custom 'delete' command
 cmd delete ${{
@@ -126,6 +127,7 @@ set ratios 1:2
 # Edit files with $EDITOR
 map El $$EDITOR ~/.config/lf/lfrc
 map Ev $$EDITOR ~/.config/nvim/init.lua
+map Ex $$EDITOR ~/.config/xonsh/rc.xsh
 
 # Copy
 cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
@@ -152,11 +154,29 @@ cmd yank-basename-without-extension ${{
       if [ -n "$fs" ]; then cat; else tr -d '\n'; fi |
       xclip -i -selection clipboard
 }}
+
+# zoxide integration
+cmd z %{{
+	result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
+	lf -remote "send $id cd \"$result\""
+}}
+
+cmd zi ${{
+	result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+	lf -remote "send $id cd \"$result\""
+}}
+
+cmd on-cd &{{
+        zoxide add "$PWD"
+}}
+
 map Cd yank-dirname
 map Cp yank-path
 map Cn yank-basename
 map Cw yank-basename-without-extension
 map Cr yank-project-root
 
-set previewer ~/.config/lf/pv.sh
+# set previewer ~/.config/lf/pv.sh
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
 map i $~/.config/lf/pv.sh $f | less -R

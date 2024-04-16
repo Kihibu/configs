@@ -1,6 +1,5 @@
 
-set EDITOR 'nvim'
-
+set --erase --global EDITOR
 fish_vi_key_bindings
 
 if not test -d $HOME/.config/ranger
@@ -22,8 +21,6 @@ if not test -z $FULL_INIT
   set fish_function_path $ANDROID_HOME/toolsexport $fish_function_path
   set fish_function_path $ANDROID_HOME/tools/binexport $fish_function_path
   set fish_function_path $ANDROID_HOME/platform-tools $fish_function_path
-
-  zoxide init fish | source
 end
 
 
@@ -39,4 +36,5 @@ end
 set -Ux BUN_INSTALL "/home/funtik/.bun"
 set -px --path PATH "/home/funtik/.bun/bin"
 starship init fish | source
+zoxide init fish | source
 # nvm use 16

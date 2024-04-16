@@ -1,9 +1,14 @@
 [/]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
 screensaver=@as []
 volume-down=['<Super>minus']
 volume-mute=['<Super>m']
 volume-up=['<Super>equal']
+
+[custom-keybindings/custom0]
+binding='<Super>n'
+command='gnote'
+name='Gnote'
 
 [custom-keybindings/custom1]
 binding='<Super>Return'
@@ -21,6 +26,6 @@ command='nautilus'
 name='Files'
 
 [custom-keybindings/custom4]
-binding='<Super>Insert'
+binding='Print'
 command='flameshot gui'
 name='Screenshot'
