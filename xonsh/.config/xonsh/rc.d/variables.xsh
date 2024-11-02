@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import sys
 
 $XONSH_COLOR_STYLE="modified_nord"
 $PATH.extend([
@@ -17,8 +18,13 @@ $PATH.extend([
     '/home/funtik/.local/bin',
     '/var/lib/snapd/snap/bin',
     '/home/funtik/.config/nm/bin',
+    # '/home/funtik/miniconda3/bin'
 ])
 $PATH.reverse()
+
+sys.path.append('/home/funtik/miniconda3/envs/MLA/lib/python3.11')
+sys.path.append('/home/funtik/miniconda3/envs/MLA/lib/python3.11/site-packages')
+sys.path.append('/home/funtik/miniconda3/lib/python3.12/site-packages')
 
 $EDITOR = 'nvim'
 $VI_MODE = True
